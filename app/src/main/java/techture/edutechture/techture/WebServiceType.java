@@ -15,7 +15,9 @@ public enum WebServiceType {
 
     // admintechture/register/
     ADMIN_LOGIN(Request.Method.POST, "admintechture/login/"),
-    
+
+    // preliminary/users/
+    LIST_USERS(Request.Method.GET, "preliminary/users/"),
 
 
     REFRESH_TOKEN(Request.Method.POST, "oauth/token?");

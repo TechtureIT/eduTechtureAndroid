@@ -13,6 +13,7 @@ import java.util.HashMap;
 import techture.edutechture.R;
 import techture.edutechture.bean.request.AdminLoginRequest;
 import techture.edutechture.bean.response.BooleanResponse;
+import techture.edutechture.bean.response.UserListResponse;
 
 import static techture.edutechture.techture.TechtureConstants.isNetworkOnline;
 
@@ -156,6 +157,24 @@ public class WebDataServiceImpl {
             getResponse(adminLogin, booleanResponseClass, url, adminLoginRequest, null, responseListener, errorListener);
         } else {
             showUserOffline(adminLogin, responseListener);
+        }
+
+    }
+
+    public void listUsers(WebServiceType listUsers, Class<UserListResponse> userListResponseClass,  Response.Listener<VolleyResponseBean> responseListener, GsonRequest.ErrorListener errorListener) {
+
+
+
+        Util.checkNetworkStatus(mApp);
+        if (TechtureConstants.isNetworkOnline) {
+
+            String url = listUsers.getUrl();
+
+
+            Log.d("URL REQUEST", url);
+            getResponse(listUsers, userListResponseClass, url, null, null, responseListener, errorListener);
+        } else {
+            showUserOffline(listUsers, responseListener);
         }
 
     }
